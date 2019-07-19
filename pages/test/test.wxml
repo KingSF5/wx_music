@@ -1,6 +1,0 @@
-<!--pages/test/test.wxml-->
-<view wx:for="{{data}}">
-  <text>{{index+1}}:{{item.singer}}</text>
-  <text>{{item.name}}</text>
-  <image src="{{item.pic}}"></image>
-</view>

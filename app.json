@@ -4,8 +4,7 @@
     "pages/index/index",
     "pages/logs/logs",
     "pages/list/list",
-    "pages/play/play",
-    "pages/test/test"
+    "pages/play/play"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -30,7 +29,7 @@
         "selectedIconPath": "images/tab_icon_new2.png"
       },
       {
-        "pagePath": "pages/test/test",
+        "pagePath": "pages/index/index",
         "text": "播放",
         "iconPath": "images/tab_icon_start.png",
         "selectedIconPath": "images/tab_icon_start2.png"

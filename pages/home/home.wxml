@@ -41,9 +41,9 @@
     <movable-area>
       <movable-view direction="horizontal" inertia="true">
 
-        <navigator url="../play/play?mn=告白气球&ma=周杰伦&mu=http://www.ytmp3.cn/down/52104.mp3&mp=../../images/home/img04.jpg">
+        <navigator url="../play/play?mn=告白气球&ma=周杰伦&mu=http://www.ytmp3.cn/down/52104.mp3&mp=../../images/home/img05.jpg">
           <view>
-            <image src="../../images/home/img04.jpg"></image>
+            <image src="../../images/home/img05.jpg"></image>
             <text class="songTitle">告白气球</text>
             <text class="songSinger">周杰伦</text>
           </view>

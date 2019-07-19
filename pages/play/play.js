@@ -24,7 +24,7 @@ Page({
       mposter: options.mp
     });
 
-    //实现播放：使用微信小程序的接口提供对象。
+    //实现播放：使用微信小程序的接口提供对象
     var myMusic = wx.getBackgroundAudioManager();
     myMusic.title = this.data.mname;
     myMusic.src = this.data.murl;
