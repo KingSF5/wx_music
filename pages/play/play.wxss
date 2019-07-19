@@ -1,0 +1,87 @@
+/* pages/play/play.wxss */
+page{
+  background-color: #bcbab8;
+}
+
+/*音乐信息的设定*/
+.music_info{
+  width: 100%;
+  height: 150rpx;
+  color: white;
+  margin-top: 40rpx;
+}
+
+.music_info view{
+  height: 60rpx;
+  text-align: center;/*文本居中*/
+}
+
+.music_info view:last-child text{
+  font-size: 30rpx;
+}
+
+/*圆形转盘*/
+.music_poster{
+  width: 100%;
+  height: 400rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.music_poster view{
+  width: 350rpx;
+  height: 350rpx;
+  border-radius: 50%;
+  background-color:#cacaca;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.music_poster view image{
+  width: 320rpx;
+  height: 320rpx;
+  border-radius: 50%;
+  box-shadow: 0px 0px 8px 4px white;
+  animation: roll 10s linear infinite;
+}
+
+@keyframes roll{
+  from{transform: rotate(0)}
+  to{transform: rotate(360deg)}
+}
+
+/*进度条*/
+.music_progress{
+  width: 100%;
+  height: 120rpx;
+  margin-top: 100rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.music_progress progress{
+  width: 70%;
+}
+
+/*音乐控制*/
+.music_controller{
+  width: 90%;
+  height: 180rpx;
+  margin: 20rpx auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.music_controller image{
+  width: 80rpx;
+  height: 80rpx;
+}
+
+.music_controller image:nth-child(3){
+  width: 120rpx;
+  height: 120rpx;
+}

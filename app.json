@@ -1,0 +1,47 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/list/list",
+    "pages/play/play",
+    "pages/test/test"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "乐听音乐",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#c2c2c4",
+    "selectedColor": "#2196f5",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "首页",
+        "iconPath": "images/tab_icon_home.png",
+        "selectedIconPath": "images/tab_icon_home2.png"
+      },
+      {
+        "pagePath": "pages/list/list",
+        "text": "榜单",
+        "iconPath": "images/tab_icon_new.png",
+        "selectedIconPath": "images/tab_icon_new2.png"
+      },
+      {
+        "pagePath": "pages/test/test",
+        "text": "播放",
+        "iconPath": "images/tab_icon_start.png",
+        "selectedIconPath": "images/tab_icon_start2.png"
+      },
+      {
+        "pagePath": "pages/logs/logs",
+        "text": "日志",
+        "iconPath": "images/tab_icon_me.png",
+        "selectedIconPath": "images/tab_icon_me2.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

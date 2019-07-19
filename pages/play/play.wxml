@@ -1,0 +1,27 @@
+<!--pages/play/play.wxml-->
+<view class="music_info">
+  <view>
+    <text>{{mname}}</text>
+  </view>
+  <view>
+    <text>{{mauthor}}</text>
+  </view>
+</view>
+
+<view class="music_poster">
+  <view>
+    <image src="{{mposter}}"></image>
+  </view>
+</view>
+
+<view class="music_progress">
+  <progress percent="10" stroke-width="2" color="#f8c43a"></progress>
+</view>
+
+<view class="music_controller">
+  <image src="../../images/random.png"></image>
+  <image src="../../images/left.png"></image>
+  <image src="../../images/play.png"></image>
+  <image src="../../images/right.png"></image>
+  <image src="../../images/menu.png"></image>
+</view>

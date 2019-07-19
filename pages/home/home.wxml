@@ -1,0 +1,81 @@
+<!--pages/home/home.wxml-->
+<!--顶部滑块-->
+<swiper indicator-dots="=true" autoplay="true" circular="true">
+  <swiper-item>
+    <image src="../../images/home/banner01.jpg"></image>
+  </swiper-item>
+  <swiper-item>
+    <image src="../../images/home/banner02.jpg"></image>
+  </swiper-item> 
+</swiper>
+
+<!--功能区选项卡-->
+<view class="topTab wrap">
+  <view>
+    <image src="../../images/topicon01.png"></image>
+    <text>榜单</text>
+  </view>
+  <view>
+    <image src="../../images/topicon02.png"></image>
+    <text>明星</text>
+  </view>
+  <view>
+    <image src="../../images/topicon03.png"></image>
+    <text>附近</text>
+  </view>
+  <view>
+    <image src="../../images/topicon04.png"></image>
+    <text>喜欢</text>
+  </view>
+</view>
+
+<!--热门区域-->
+<view class="centerblank"></view>
+
+<view class="hotSelf">
+  <view class="titleWrap">
+    <text>热门原创</text>
+    <text>更多</text>
+  </view>
+  <view class="hotSelf_cont">
+    <movable-area>
+      <movable-view direction="horizontal" inertia="true">
+
+        <navigator url="../play/play?mn=告白气球&ma=周杰伦&mu=http://www.ytmp3.cn/down/52104.mp3&mp=../../images/home/img04.jpg">
+          <view>
+            <image src="../../images/home/img04.jpg"></image>
+            <text class="songTitle">告白气球</text>
+            <text class="songSinger">周杰伦</text>
+          </view>
+        </navigator>
+
+        <navigator url="../play/play?mn=小幸运&ma=田馥甄&mu=http://www.ytmp3.cn/down/36891.mp3&mp=../../images/home/img02.jpg">
+          <view>
+            <image src="../../images/home/img02.jpg"></image>
+            <text class="songTitle">小幸运</text>
+            <text class="songSinger">田馥甄</text>
+          </view>
+        </navigator>
+
+        <navigator url="../play/play?mn=沙漠骆驼&ma=展展和罗罗&mu=http://www.ytmp3.cn/down/53809.mp3&mp=../../images/home/img03.jpg">
+          <view>
+            <image src="../../images/home/img03.jpg"></image>
+            <text class="songTitle">沙漠骆驼</text>
+            <text class="songSinger">展展和罗罗</text>
+          </view>
+        </navigator>
+
+        <navigator url="../play/play?mn=光年之外&ma=邓紫棋&mu=http://www.ytmp3.cn/down/53117.mp3&mp=../../images/home/img06.jpg">
+          <view>
+            <image src="../../images/home/img06.jpg"></image>
+            <text class="songTitle">光年之外</text>
+            <text class="songSinger">邓紫棋</text>
+          </view>
+        </navigator>
+
+      </movable-view>
+    </movable-area>
+  </view>
+</view>
+
+<view class="centerblank"></view>
