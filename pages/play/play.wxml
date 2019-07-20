@@ -11,7 +11,9 @@
 
   <view wx:if="{{hide}}">
     <image src="{{mposter}}"></image>
+    
   </view>
+  <text wx:if="">qwewqe</text>
   
 </view>
 

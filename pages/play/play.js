@@ -86,14 +86,14 @@ Page({
       this.data.play=false;
       this.data.myMusic.pause();
       this.setData({
-        playImg:"../../images/play.png"
+        playImg:"../../images/stop.png"
       })
     }else{
       //播放音乐
       this.data.play=true;
       this.data.myMusic.play();
       this.setData({
-        playImg: "../../images/stop.png"
+        playImg: "../../images/play.png"
       })
     }
   },
