@@ -15,13 +15,27 @@
 </view>
 
 <view class="music_progress">
-  <progress percent="10" stroke-width="2" color="#f8c43a"></progress>
+  <progress stroke-width="2" color="#f8c43a" class="music-prog" bindtouchmove="setTouchMove" percent="{{musicPercent}}"></progress>
 </view>
 
 <view class="music_controller">
-  <image src="../../images/random.png"></image>
-  <image src="../../images/left.png"></image>
-  <image src="../../images/play.png"></image>
-  <image src="../../images/right.png"></image>
-  <image src="../../images/menu.png"></image>
+  <button>
+    <image src="../../images/random.png"></image>
+  </button>
+  
+  <button>
+    <image src="../../images/left.png"></image>
+  </button>
+  
+  <button bindtap="listenerButtonPause" >
+    <image src="../../images/play.png" ></image>
+  </button>
+  
+  <button>
+    <image src="../../images/right.png"></image>
+  </button>
+
+  <button>
+    <image src="../../images/menu.png"></image>
+  </button>
 </view>

@@ -27,9 +27,13 @@ Page({
     //实现播放：使用微信小程序的接口提供对象
     var myMusic = wx.getBackgroundAudioManager();
     myMusic.title = this.data.mname;
+    myMusic.singer = this.data.mauthor;
     myMusic.src = this.data.murl;
   },
 
+  listenerButtonPause: function () {
+    wx.pauseBackgroundAudio();
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -41,7 +45,21 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    let that = this
+    wx.onBackgroundAudioPlay(() => {
+      that.timer && clearInterval(that.timer)
+      that.timer = setInterval(() => {
+        wx.getBackgroundAudioPlayerState({
+          success: res => {
+            let per = (res.currentPosition / res.duration) * 10000
+            that.setData({
+              musicPercent: Math.round(per) / 100 + '',
+              duration: res.duration
+            })
+          }
+        })
+      }, 1000)
+    })
   },
 
   /**
