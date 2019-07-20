@@ -11,7 +11,7 @@
 
 <view wx:for="{{data}}" class="item {{index}}" bindtap="openPlay" data-id="{{index}}">
 
-  <navigator url="../play/play?mn={{item.name}}&ma={{item.singer}}&mu=https://v1.itooi.cn/tencent/url%3Fid%{{item.id}}&mp={{item.pic}}">
+  <navigator url="../play/play?mn={{item.name}}&ma={{item.singer}}&mu=https://v1.itooi.cn/tencent/url%3Fid%3D{{item.id}}&mp={{item.pic}}">
     <image src="{{item.pic}}"></image>
   </navigator>
 

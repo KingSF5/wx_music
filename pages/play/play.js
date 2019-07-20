@@ -16,13 +16,29 @@ Page({
    */
   onLoad: function (options) {
     console.log(options);
-    //将传递过来的参数值赋值给该页面play的页面初始化数据
-    this.setData({
-      murl: options.mu,
-      mname: options.mn,
-      mauthor: options.ma,
-      mposter: options.mp
-    });
+    if(options.mu!=null){//首页传参
+      //将传递过来的参数值赋值给该页面play的页面初始化数据
+      this.setData({
+        murl: options.mu,
+        mname: options.mn,
+        mauthor: options.ma,
+        mposter: options.mp
+      });
+    }else{//列表传参：通过storage
+    let that = this;
+      wx.getStorage({
+        key: 'songInfo',
+        success: function(res) {
+          console.log("play-storage"+res.data.singer);
+          that.setData({
+            murl: res.data.url,
+            mname: res.data.name,
+            mauthor: res.data.singer,
+            mposter: res.data.pic
+          })
+        },
+      })
+    }
 
     //实现播放：使用微信小程序的接口提供对象
     var myMusic = wx.getBackgroundAudioManager();

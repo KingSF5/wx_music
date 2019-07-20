@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    data:[]
   },
 
   /**
@@ -34,8 +34,15 @@ Page({
     //哪个被点击：data-id所传过来的view索引，对应到songlist的索引
     var id =e.currentTarget.dataset.id;
     console.log("id"+id);
+
+    //传递数据到play界面
+    wx.setStorage({
+      key: 'songInfo',
+      data: this.data.data[id],
+    })
+    
     wx.navigateTo({
-      url: '../play/play',
+      url:"../play/play",
     })
   },
 
