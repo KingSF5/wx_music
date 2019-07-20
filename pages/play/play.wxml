@@ -34,5 +34,4 @@
     <image src="{{playImg}}" bindtap="playOrPause"></image>
     <image src="../../images/right.png"></image>
     <image src="../../images/menu.png"></image>
- 
-</view>
+ </view>

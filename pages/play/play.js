@@ -11,7 +11,7 @@ Page({
     mposter:'',
     mlrc:'',
     mcommnent:'',
-    comment:'',
+    comment:[],
     lrc:'',
     play:false,
     myMusic:null,
@@ -56,7 +56,7 @@ Page({
               mauthor: res.data.singer,
               mposter: res.data.pic,
               mlrc: "https://v1.itooi.cn/tencent/lrc?id="+res.data.id,
-              mcommnent: "https://v1.itooi.cn/tencent/comment/song?id=" + res.data.id+"&page=0&pageSize=30"
+              mcommnent: "https://v1.itooi.cn/tencent/comment/song?id=" + res.data.id+"&page=0&pageSize=4"
             });
             
             //实现播放：使用微信小程序的接口提供对象
@@ -71,7 +71,6 @@ Page({
             //请求歌词信息
             wx.request({
               url: that.data.mlrc,
-              //仅为示例，并非真实的接口地址
               header: {
                 'content-type': 'application/json' // 默认值
               },
@@ -79,6 +78,21 @@ Page({
                 console.log(res.data)//服务器返回数据
                 that.setData({
                   lrc: res.data
+                })
+              }
+            })
+
+
+            //请求评论区信息
+            wx.request({
+              url: that.data.mcommnent,
+              header: {
+                'content-type': 'application/json' // 默认值
+              },
+              success(res) {
+                console.log(res.data)//服务器返回数据
+                that.setData({
+                  comment: res.data
                 })
               }
             })
