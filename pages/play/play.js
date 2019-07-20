@@ -9,6 +9,8 @@ Page({
     mname:'',
     mauthor:'',
     mposter:'',
+    mlrc:'',
+    lrc:'',
     play:false,
     myMusic:null,
     playImg:"../../images/play.png",
@@ -29,7 +31,7 @@ Page({
         murl: options.mu,
         mname: options.mn,
         mauthor: options.ma,
-        mposter: options.mp
+        mposter: options.mp,
       });
       var myMusic = wx.getBackgroundAudioManager();
       myMusic.title = this.data.mname;
@@ -48,7 +50,8 @@ Page({
               murl: res.data.url,
               mname: res.data.name,
               mauthor: res.data.singer,
-              mposter: res.data.pic
+              mposter: res.data.pic,
+              mlrc: "https://v1.itooi.cn/tencent/lrc?id="+res.data.id
             });
             
             //实现播放：使用微信小程序的接口提供对象
@@ -59,12 +62,24 @@ Page({
               play: true,
               myMusic: myMusic
             });
-          
-          
+
+            //请求歌词信息
+            wx.request({
+              url: that.data.mlrc,
+              //仅为示例，并非真实的接口地址
+              header: {
+                'content-type': 'application/json' // 默认值
+              },
+              success(res) {
+                console.log(res.data)//服务器返回数据
+                that.setData({
+                  lrc: res.data
+                })
+              }
+            })
         },
       })
     }
-
   },
 
   showLyrics: function () {

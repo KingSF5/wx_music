@@ -13,7 +13,7 @@
     <image src="{{mposter}}"></image>
     
   </view>
-  <text wx:if="">qwewqe</text>
+  <text wx:if="1">{{lrc}}</text>
   
 </view>
 
