@@ -7,11 +7,12 @@
     <text>{{mauthor}}</text>
   </view>
 </view>
+<view class="music_poster" bindtap="showLyrics">
 
-<view class="music_poster">
-  <view>
+  <view wx:if="{{hide}}">
     <image src="{{mposter}}"></image>
   </view>
+  
 </view>
 
 <view class="music_progress">

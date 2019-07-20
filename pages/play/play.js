@@ -11,13 +11,17 @@ Page({
     mposter:'',
     play:false,
     myMusic:null,
-    playImg:"../../images/play.png"
+    playImg:"../../images/play.png",
+    visible:1
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.setData({
+      hide: this.data.visible
+    })
     console.log(options);
     if(options.mu!=null){//首页传参
       //将传递过来的参数值赋值给该页面play的页面初始化数据
@@ -34,8 +38,6 @@ Page({
         play: true,
         myMusic: myMusic
       });
-      
-      
     }else{//列表传参：通过storage
       let that = this;
         wx.getStorage({
@@ -65,6 +67,16 @@ Page({
 
   },
 
+  showLyrics: function () {
+    if (this.data.visible == 1) {
+      this.data.visible = 0
+    } else {
+      this.data.visible = 1
+    }
+    this.setData({
+      hide: this.data.visible
+    })
+  },
   /**
    * 实现音乐播放与暂停
    */
