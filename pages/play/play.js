@@ -10,11 +10,14 @@ Page({
     mauthor:'',
     mposter:'',
     mlrc:'',
+    mcommnent:'',
+    comment:'',
     lrc:'',
     play:false,
     myMusic:null,
     playImg:"../../images/play.png",
-    visible:1
+    visibleOne:1,
+    visibleTwo:0
   },
 
   /**
@@ -22,7 +25,8 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      hide: this.data.visible
+      hideOne: this.data.visibleOne,
+      hideTwo: this.data.visibleTwo
     })
     console.log(options);
     if(options.mu!=null){//首页传参
@@ -51,7 +55,8 @@ Page({
               mname: res.data.name,
               mauthor: res.data.singer,
               mposter: res.data.pic,
-              mlrc: "https://v1.itooi.cn/tencent/lrc?id="+res.data.id
+              mlrc: "https://v1.itooi.cn/tencent/lrc?id="+res.data.id,
+              mcommnent: "https://v1.itooi.cn/tencent/comment/song?id=" + res.data.id+"&page=0&pageSize=30"
             });
             
             //实现播放：使用微信小程序的接口提供对象
@@ -83,13 +88,22 @@ Page({
   },
 
   showLyrics: function () {
-    if (this.data.visible == 1) {
-      this.data.visible = 0
-    } else {
-      this.data.visible = 1
-    }
+    this.data.visibleOne = 0;
+    this.data.visibleTwo = 1
+
     this.setData({
-      hide: this.data.visible
+      hideOne: this.data.visibleOne,
+      hideTwo: this.data.visibleTwo
+    })
+  },
+
+  closeLyrics: function () {
+    this.data.visibleOne = 1;
+    this.data.visibleTwo = 0
+
+    this.setData({
+      hideOne: this.data.visibleOne,
+      hideTwo: this.data.visibleTwo
     })
   },
   /**

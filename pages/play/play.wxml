@@ -7,14 +7,21 @@
     <text>{{mauthor}}</text>
   </view>
 </view>
-<view class="music_poster" bindtap="showLyrics">
 
-  <view wx:if="{{hide}}">
-    <image src="{{mposter}}"></image>
-    
+<scroll-view  scroll-y="true" scroll-with-animation='true' class="lryics" bindtap="closeLyrics" wx:if="{{hideTwo}}">
+      <view class='contentText'>
+           <block >
+               <text>{{lrc}}</text>
+            </block>
+       </view>
+</scroll-view>
+
+<view class="music_poster" bindtap="showLyrics" wx:if="{{hideOne}}">
+
+  <view>
+    <image src="{{mposter}}"></image> 
   </view>
-  <text wx:if="1">{{lrc}}</text>
-  
+
 </view>
 
 <view class="music_progress">

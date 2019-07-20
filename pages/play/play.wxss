@@ -20,6 +20,13 @@ page{
   font-size: 30rpx;
 }
 
+/*歌词位置*/
+.lryics{
+  height: 400rpx;
+  width: 70%;
+  margin:0 15%;
+}
+
 /*圆形转盘*/
 .music_poster{
   width: 100%;
