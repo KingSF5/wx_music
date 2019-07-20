@@ -8,7 +8,10 @@ Page({
     murl:'',
     mname:'',
     mauthor:'',
-    mposter:''
+    mposter:'',
+    play:false,
+    myMusic:null,
+    playImg:"../../images/play.png"
   },
 
   /**
@@ -24,32 +27,65 @@ Page({
         mauthor: options.ma,
         mposter: options.mp
       });
+      var myMusic = wx.getBackgroundAudioManager();
+      myMusic.title = this.data.mname;
+      myMusic.src = this.data.murl;
+      this.setData({
+        play: true,
+        myMusic: myMusic
+      });
+      
+      
     }else{//列表传参：通过storage
-    let that = this;
-      wx.getStorage({
-        key: 'songInfo',
-        success: function(res) {
-          console.log("play-storage"+res.data.singer);
-          that.setData({
-            murl: res.data.url,
-            mname: res.data.name,
-            mauthor: res.data.singer,
-            mposter: res.data.pic
-          })
+      let that = this;
+        wx.getStorage({
+         key: 'songInfo',
+          success: function(res) {
+            console.log("play-storage"+res.data.singer);
+            that.setData({
+              murl: res.data.url,
+              mname: res.data.name,
+              mauthor: res.data.singer,
+              mposter: res.data.pic
+            });
+            
+            //实现播放：使用微信小程序的接口提供对象
+            var myMusic = wx.getBackgroundAudioManager();
+            myMusic.title = that.data.mname;
+            myMusic.src = that.data.murl;
+            that.setData({
+              play: true,
+              myMusic: myMusic
+            });
+          
+          
         },
       })
     }
 
-    //实现播放：使用微信小程序的接口提供对象
-    var myMusic = wx.getBackgroundAudioManager();
-    myMusic.title = this.data.mname;
-    myMusic.singer = this.data.mauthor;
-    myMusic.src = this.data.murl;
   },
 
-  listenerButtonPause: function () {
-    wx.pauseBackgroundAudio();
+  /**
+   * 实现音乐播放与暂停
+   */
+  playOrPause:function(){
+    if(this.data.play){
+      //暂停音乐
+      this.data.play=false;
+      this.data.myMusic.pause();
+      this.setData({
+        playImg:"../../images/play.png"
+      })
+    }else{
+      //播放音乐
+      this.data.play=true;
+      this.data.myMusic.play();
+      this.setData({
+        playImg: "../../images/stop.png"
+      })
+    }
   },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

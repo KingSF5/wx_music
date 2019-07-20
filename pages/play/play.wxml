@@ -19,23 +19,10 @@
 </view>
 
 <view class="music_controller">
-  <button>
     <image src="../../images/random.png"></image>
-  </button>
-  
-  <button>
     <image src="../../images/left.png"></image>
-  </button>
-  
-  <button bindtap="listenerButtonPause" >
-    <image src="../../images/play.png" ></image>
-  </button>
-  
-  <button>
+    <image src="{{playImg}}" bindtap="playOrPause"></image>
     <image src="../../images/right.png"></image>
-  </button>
-
-  <button>
     <image src="../../images/menu.png"></image>
-  </button>
+ 
 </view>

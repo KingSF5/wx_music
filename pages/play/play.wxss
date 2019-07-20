@@ -76,22 +76,16 @@ page{
   align-items: center;
 }
 
-.music_controller button{
+.music_controller image{
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: #bcbab8;
-  width: 120rpx;
-  height: 120rpx;
-}
-
-.music_controller button image{
   width: 80rpx;
   height: 80rpx;
 }
 
-
-.music_controller button:nth-child(3) image{
-  width: 500rpx;
+.music_controller image:nth-child(3){
+  width: 120rpx;
   height: 120rpx;
 }
