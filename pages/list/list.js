@@ -30,9 +30,9 @@ Page({
 
   /*创建一个函数，当点击列表项的时候，会进到openPlay*/
   openPlay:function(e){
-    console.log(e);
+    //console.log(e);
     //哪个被点击：data-id所传过来的view索引，对应到songlist的索引
-    var id =e.currenTarget.datadset.id;
+    var id =e.currentTarget.dataset.id;
     console.log("id"+id);
     wx.navigateTo({
       url: '../play/play',
