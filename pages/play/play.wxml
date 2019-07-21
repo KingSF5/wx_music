@@ -35,3 +35,30 @@
     <image src="../../images/right.png"></image>
     <image src="../../images/menu.png"></image>
  </view>
+
+<!--评论弹窗-->
+<view class="mask" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+ 
+<view class="modalDlg" wx:if="{{showModal}}">
+  <scroll-view  scroll-y="true" scroll-with-animation='true' class="commentscroll">
+    <view wx:for="{{comment.data.commentlist}}">
+      <block>
+        <view>
+          <text>昵称：{{item.nick}}\n</text>
+        </view>
+        <view>
+          <text>评论：{{item.rootcommentcontent}}\n\n</text>
+        </view>
+      </block>
+    </view>
+  </scroll-view>
+
+  <view class="commentBottom">
+    <input type="text" class="commentBox" bindconfirm="sendComment"></input>
+    <button bindtap="go" class="closeComment">
+      <text style="font-size:70%;">关闭评论</text>
+    </button>
+  </view>
+</view>
+ 
+<button bindtap="submit">打开弹窗</button>

@@ -10,14 +10,15 @@ Page({
     mauthor:'',
     mposter:'',
     mlrc:'',
-    mcommnent:'',
+    mcomment:'',
     comment:[],
     lrc:'',
     play:false,
     myMusic:null,
     playImg:"../../images/play.png",
     visibleOne:1,
-    visibleTwo:0
+    visibleTwo:0,
+    showModal: false,
   },
 
   /**
@@ -56,7 +57,7 @@ Page({
               mauthor: res.data.singer,
               mposter: res.data.pic,
               mlrc: "https://v1.itooi.cn/tencent/lrc?id="+res.data.id,
-              mcommnent: "https://v1.itooi.cn/tencent/comment/song?id=" + res.data.id+"&page=0&pageSize=4"
+              mcomment: "https://v1.itooi.cn/tencent/comment/song?id=" + res.data.id+"&page=0&pageSize=4"
             });
             
             //实现播放：使用微信小程序的接口提供对象
@@ -85,7 +86,7 @@ Page({
 
             //请求评论区信息
             wx.request({
-              url: that.data.mcommnent,
+              url: that.data.mcomment,
               header: {
                 'content-type': 'application/json' // 默认值
               },
@@ -120,6 +121,39 @@ Page({
       hideTwo: this.data.visibleTwo
     })
   },
+  
+  /*实现弹窗*/
+  submit: function () {
+    this.setData({
+      showModal: true
+    })
+  },
+
+  preventTouchMove: function () {
+
+  },
+
+
+  go: function () {
+    this.setData({
+      showModal: false
+    })
+  },
+
+  /*发表评论*/
+  sendComment:function(e){
+    var abc=e.detail.value
+    var comm = {
+      rootcommentcontent:abc,
+      nick:"本地用户"
+    }
+    this.data.comment.data.commentlist.push(comm)
+    let that = this;
+    this.setData({
+      comment:that.data.comment
+    })
+  },
+
   /**
    * 实现音乐播放与暂停
    */
